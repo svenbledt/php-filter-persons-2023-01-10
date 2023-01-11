@@ -19,17 +19,22 @@ define(
         array("first_name" => "Robert", "last_name" => "Graveur", "age" => 54, "country" => "France"),
     )
 );
+
+function writePersonRow($person)
+{
+    echo "<tr><td>" . $person["first_name"] . "</td><td>" . $person["last_name"] . "</td><td>" . $person["age"] . "</td><td>" . $person["country"] . "</td></tr>";
+}
 function writeAllPersons()
 {
     foreach (PEOPLE as $person) {
-        echo "<tr><td>" . $person["first_name"] . "</td><td>" . $person["last_name"] . "</td><td>" . $person["age"] . "</td><td>" . $person["country"] . "</td></tr>";
+        writePersonRow($person);        
     }
 }
 function writeYoungerThan40()
 {
     foreach (PEOPLE as $person) {
         if ($person['age'] < 41) {
-            echo "<tr><td>" . $person["first_name"] . "</td><td>" . $person["last_name"] . "</td><td>" . $person["age"] . "</td><td>" . $person["country"] . "</td></tr>";
+            writePersonRow($person);        
         }
     }
 }
@@ -37,7 +42,7 @@ function writeYoungNonSuisse()
 {
     foreach (PEOPLE as $person) {
         if ($person['country'] != 'Switzerland' && $person['age'] < 30) {
-            echo "<tr><td>" . $person["first_name"] . "</td><td>" . $person["last_name"] . "</td><td>" . $person["age"] . "</td><td>" . $person["country"] . "</td></tr>";
+            writePersonRow($person);        
         }
     }
 }
