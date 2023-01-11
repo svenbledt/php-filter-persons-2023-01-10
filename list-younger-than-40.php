@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 require('includes/tools.php');
 require('includes/persons.php');
 ?>
@@ -25,7 +25,7 @@ require('includes/persons.php');
     </thead>
     <tbody>
       <tr>
-      <?php writeAllPersons(); ?>
+      <?php writeYoungerThan40(); ?>
         <!--<td>John</td>
         <td>Doe</td>
         <td>john@example.com</td>-->

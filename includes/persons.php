@@ -6,80 +6,38 @@
     !! Prüfen: Eine PHP-Konstante hat kein '$' Symbol am Anfang.
     !! die Personen aus dem JavaScript Array (unten) in PHP übernehmen
 */
-define("PERSONS", array(
-    array(
-        "firstName" => "Peter",
-        "lastName" => "Towers",
-        "age"=> 86,
-        "country"=> "USA"
-    ),
-    // TODO
-));
-
-print_r(PERSONS);
-
-
-
-
-
-/*
-Personen als JavaScript Array:
-[
-    {
-        firstName: "Peter",
-        lastName: "Towers",
-        age: 86,
-        country: "USA"
-    },
-    {
-        firstName: "Paul",
-        lastName: "Miller",
-        age: 54,
-        country: "USA"
-    },
-    {
-        firstName: "Fritz",
-        lastName: "Kleiner",
-        age: 24,
-        country: "Schweiz"
-    },
-    {
-        firstName: "Hans",
-        lastName: "Müller",
-        age: 14,
-        country: "Lichtenstein"
-    },
-    {
-        firstName: "Jolanda",
-        lastName: "Frankfurter",
-        age: 36,
-        country: "Deutschland"
-    },
-    {
-        firstName: "Karl",
-        lastName: "Keller",
-        age: 30,
-        country: "Deutschland"
-    },
-    {
-        firstName: "Hanspeter",
-        lastName: "Schröder",
-        age: 42,
-        country: "Deutschland"
-    },
-    {
-        firstName: "Emilio",
-        lastName: "Sottorno",
-        age: 40,
-        country: "Italien"
-    },
-    {
-        firstName: "Robert",
-        lastName: "Graveur",
-        age: 54,
-        country: "Frankreich"
+define ("PEOPLE", array(
+    array("first_name" => "Peter", "last_name" => "Towers", "age" => 86, "country" => "United States"),
+    array("first_name" => "Paul", "last_name" => "Miller", "age" => 54, "country" => "United States"),
+    array("first_name" => "Fritz", "last_name" => "Kleiner", "age" => 24, "country" => "Switzerland"),
+    array("first_name" => "Hans", "last_name" => "Müller", "age" => 14, "country" => "Liechtenstein"),
+    array("first_name" => "Jolanda", "last_name" => "Frankfurter", "age" => 36, "country" => "Germany"),
+    array("first_name" => "Karl", "last_name" => "Keller", "age" => 30, "country" => "Germany"),
+    array("first_name" => "Hanspeter", "last_name" => "Schröder", "age" => 42, "country" => "Germany"),
+    array("first_name" => "Emilio", "last_name" => "Sottorno", "age" => 40, "country" => "Italy"),
+    array("first_name" => "Robert", "last_name" => "Graveur", "age" => 54, "country" => "France"),
+    )
+);
+function writeAllPersons()
+{
+    foreach (PEOPLE as $person) {
+        echo "<tr><td>" . $person["first_name"] . "</td><td>" . $person["last_name"] . "</td><td>" . $person["age"] . "</td><td>" . $person["country"] . "</td></tr>";
     }
-];
-
-*/
+}
+function writeYoungerThan40()
+{
+    foreach (PEOPLE as $person) {
+        if ($person['age'] < 41) {
+            echo "<tr><td>" . $person["first_name"] . "</td><td>" . $person["last_name"] . "</td><td>" . $person["age"] . "</td><td>" . $person["country"] . "</td></tr>";
+        }
+    }
+}
+function writeYoungNonSuisse()
+{
+    foreach (PEOPLE as $person) {
+        if ($person['country'] != 'Switzerland' && $person['age'] < 30) {
+            echo "<tr><td>" . $person["first_name"] . "</td><td>" . $person["last_name"] . "</td><td>" . $person["age"] . "</td><td>" . $person["country"] . "</td></tr>";
+        }
+    }
+}
 ?>
